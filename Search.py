@@ -18,7 +18,7 @@ def query_Shodan(term, callback):
 	try:
 		i=1
 		while True:
-			#Search Shodan
+			#Busqueda Shodan
 			results = api.search(term,page=i)
 
 			#Construir diccionario con los resultados
