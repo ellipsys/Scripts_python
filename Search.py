@@ -7,7 +7,7 @@
 import time
 from shodan import WebAPI
 
-SHODAN_API_KEY = "insert your API key here"
+SHODAN_API_KEY = "Ingrese la API KEY SHODAN"
 
 # Crear coneccion con API SHODAN
 api = WebAPI(SHODAN_API_KEY)
