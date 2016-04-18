@@ -1,4 +1,4 @@
-dic = open("ellipsys.txt", "w+")
+dic = open("ellipsys.txt", "a")
 a="CPE#"
 for i in range(0,1000000):
 	i=i+1
