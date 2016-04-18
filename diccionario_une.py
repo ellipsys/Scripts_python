@@ -1,3 +1,4 @@
+#!/usr/bin/python
 dic = open("ellipsys.txt", 'w')
 a="CPE#"
 for i in range(0,1000):
