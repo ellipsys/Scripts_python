@@ -1,3 +1,4 @@
+import math
 matriz=[]
 filas=int(raw_input("Escriba la cantidad de filas: "))
 columnas=int(raw_input("Escriba la cantidad de columnas: "))
