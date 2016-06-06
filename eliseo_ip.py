@@ -11,12 +11,12 @@ for i in range(0,256):
         a=r1.status_code
         code=str(a)
         if code!="200":
-            r=requests.get('http://'+ip+str(i)+':8080/', auth=HTTPBasicAuth('admin', 'Uq-4GIt3M'), timeout=0.3)
+            r=requests.get('http://'+ip+str(i)+':8080/', auth=HTTPBasicAuth('admin', 'pass'), timeout=0.3)
             b=r.status_code
             code1=str(b)
             if code1=='200':
                 count=count+1
-                print ip+str(i)+".................loged ok"
+                print ip+str(i)+".................login ok"
             
         #file.write(ip+str(i))
     except requests.exceptions.ConnectTimeout:
