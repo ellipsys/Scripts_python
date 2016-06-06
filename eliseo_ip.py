@@ -27,7 +27,7 @@ for i in range(0,256):
         pass
     except KeyError:
         pass
-print "Se ha logrado logear en "+str(count)+" hosts"
+print "Login ok en "+str(count)+" hosts"
     
     
 	
