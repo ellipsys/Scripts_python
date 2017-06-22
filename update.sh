@@ -9,6 +9,7 @@ echo "installing net tools"
 apt-get install net-tools
 echo "installing requests"
 apt-get install -y python-requests
+apt-get install python-socks
 echo "intalling unzip"
 sudo apt-get install unzip
 echo "intalling tor"
