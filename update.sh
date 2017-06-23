@@ -24,3 +24,5 @@ sudo apt-get install -y  i2c-tools
 echo "installing setup-tools, pip"
 sudo apt-get install python-setuptools
 easy_install pip
+echo "installing scapy"
+apt-get install python-scapy
