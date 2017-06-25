@@ -8,13 +8,16 @@ display = lcddriver.lcd()
 # Main body of code
 try:
     while True:
-        # Remember that your sentences can only be 16 characters long!
-        ip = subprocess.check_output("ifconfig eth0 | grep 'inet ' | awk -F'[: ]+' '{ print $3 }'")
-        display.lcd_display_string("Ip local", 1) # Write line of text to first line of display
-        display.lcd_display_string(str(ip), 2) # Write line of text to second line of display                                    # Give time for the message to be read
-        display.lcd_clear()                               # Clear the display of any data
-        time.sleep(2)                                     # Give time for the message to be read
+        
+        ips = subprocess.check_output("hostname -I")#ifconfig eth0 | grep 'inet ' | awk -F'[: ]+' '{ print $3 }'", shell=True)
+        for ip in ips.splitlines():
+            
+            display.lcd_display_string("Ip local", 1) 
+            display.lcd_display_string(str(ip), 2) 
+            time.sleep(2)
+            display.lcd_clear()                               
+                                                 
 
-except: # If there is a KeyboardInterrupt (when you press ctrl+c), exit the program and cleanup
+except: 
     display.lcd_display_string("Not connected",1)
     display.lcd_clear()
