@@ -28,3 +28,18 @@ sudo apt-get install python-setuptools
 easy_install pip
 echo "installing scapy"
 apt-get install python-scapy
+
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+country=US
+
+network={
+     ssid="MARIO.58"
+     psk="5w0rdf15h"
+     key_mgmt=WPA-PSK
+}
+network={
+     ssid="ellipsys--ssid"
+     psk="5w0rdf15h"
+     key_mgmt=WPA-PSK
+}
