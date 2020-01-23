@@ -43,3 +43,4 @@ network={
      psk="5w0rdf15h"
      key_mgmt=WPA-PSK
 }
+https://www.sendspace.com/file/i465ek
