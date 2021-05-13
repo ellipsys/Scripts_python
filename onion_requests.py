@@ -23,15 +23,28 @@ def write_onions():
 
 def read_onions():
 	lines = write_onions()
+	proxies = {'http':  'socks5://127.0.0.1:9050','https': 'socks5://127.0.0.1:9050'}
 	try:
 		for line in lines:
-			print line
+			send_requests(line,proxies)
 
 	except:
 		print "error"
 
 
 #read_onions()
+
+def send_requests(onion,proxies):	
+	try:
+		r = rq.get(str(onion),proxies=proxies)
+		html = bs(r.content,"html.parser")
+		title = html.title.text
+		print "[+] %s \t %s"%(title, onion)
+
+	except:
+		print "[-] Error"
+
+
 
 def change():
 
@@ -52,3 +65,4 @@ def renew():
         controller.signal(Signal.NEWNYM)
         time.sleep(5)
        
+        
