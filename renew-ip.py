@@ -1,20 +1,27 @@
+import requests as rq
+import time
 from stem import Signal
 from stem.control import Controller
-import requests
-session = requests.session()
-# Tor uses the 9050 port as the default socks port
-session.proxies = {'http':  'socks5://127.0.0.1:9050',
-                   'https': 'socks5://127.0.0.1:9050'}
+import os
 
-# Make a request through the Tor connection
-# IP visible through Tor
-print session.get("http://httpbin.org/ip").text
-
-# signal TOR for a new connection 
-def renew():
+def renew_tor_ip():
     with Controller.from_port(port = 9051) as controller:
-        controller.authenticate(password="password")
+        controller.authenticate(password="5w0rdf15h")
         controller.signal(Signal.NEWNYM)
-        print session.get("http://httpbin.org/ip").text
-        
-renew()
+	print "waiting...!"
+	time.sleep(4)
+
+proxies = {
+        "https":"socks5://127.0.0.1:9050",
+        "http":"socks5://127.0.0.1:9050"
+}
+while True:
+	try:
+		renew_tor_ip()
+		r = (rq.get("http://icanhazip.com/", proxies=proxies).content).replace("\n","")
+		r =rq.get("http://ip-api.com/json/%s"%r,proxies=proxies).content
+		print r
+		time.sleep(300)
+	except:
+		os.system("sudo service tor start")
+		pass
