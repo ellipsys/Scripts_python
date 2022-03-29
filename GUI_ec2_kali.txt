@@ -1,0 +1,7 @@
+el user es "kali@ec2-domain"
+https://mittaltarun9715.medium.com/how-to-install-gui-in-kali-linux-running-on-ec2-instance-ef211a6a2e90
+sudo apt update && sudo apt dist-upgrade -y
+sudo apt install linux-headers-5.7.0-kali3-cloud-amd64 -y
+sudo apt install nvidia-driver nvidia-cuda-toolkit -y
+apt-get install — yes — force-yes kali-desktop-xfce xorg xrdp -y
+sudo systemctl enable xrdp — now
