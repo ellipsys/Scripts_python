@@ -1,0 +1,32 @@
+la linea 16 hace referencia a la columna donde esta la direccion ip o el dominio, 2, y el otro dos hace referencia desde que fila comienza a el valor. El 8 corresponde al
+numero de la columna donde se escribira si esta offline u online.
+
+Function Ping(strip)
+Dim objshell, boolcode
+Set objshell = CreateObject("Wscript.Shell")
+boolcode = objshell.Run("ping -n 1 -w 1000 " & strip, 0, True)
+If boolcode = 0 Then
+    Ping = True
+Else
+    Ping = False
+End If
+End Function
+Sub PingSystem()
+Dim strip As String
+For introw = 2 To ActiveSheet.Cells(65536, 2).End(xlUp).Row
+    strip = ActiveSheet.Cells(introw, 2).Value
+    If Ping(strip) = True Then
+        ActiveSheet.Cells(introw, 8).Interior.ColorIndex = 0
+        ActiveSheet.Cells(introw, 8).Font.Color = RGB(0, 0, 0)
+        ActiveSheet.Cells(introw, 8).Value = "ONLINE"
+        Application.Wait (Now + TimeValue("0:00:01"))
+        ActiveSheet.Cells(introw, 8).Font.Color = RGB(0, 200, 0)
+    Else
+        ActiveSheet.Cells(introw, 8).Interior.ColorIndex = 0
+        ActiveSheet.Cells(introw, 8).Font.Color = RGB(200, 0, 0)
+        ActiveSheet.Cells(introw, 8).Value = "OFFLINE"
+        Application.Wait (Now + TimeValue("0:00:01"))
+        ActiveSheet.Cells(introw, 8).Interior.ColorIndex = 6
+    End If
+Next
+End Sub
