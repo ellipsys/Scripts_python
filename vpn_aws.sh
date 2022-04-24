@@ -1,7 +1,8 @@
 #!/bin/bash
-#youtube.com/watch?v=OwEzn99KYXc
+#https://www.youtube.com/watch?v=QwEzn99KYXc
 # https://github.com/Nyr/openvpn-install
-#
+#edited for kali
+#need asign ip elatic to intance and add rule group security udp in port 1194 only for your ip
 # Copyright (c) 2013 Nyr. Released under the MIT License.
 
 
